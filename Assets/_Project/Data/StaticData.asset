@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ffe1e7f032841d883ea9a8684913179, type: 3}
+  m_Name: StaticData
+  m_EditorClassIdentifier: 
+  JoystickCanvasPrefab: {fileID: 6792808347130160170, guid: ac8cb54cf8d12f64cb22b9a85c2a8dfe, type: 3}
+  HudPrefab: {fileID: 4869103237456518012, guid: aa171c897149b7345a767cb3fd82014b, type: 3}
+  ResourceViewPrefab: {fileID: 1409631745759517664, guid: 07d7f130e165b7f4babc073c69931580, type: 3}
+  PlayerPrefab: {fileID: 1084691848759891351, guid: 92ee8be0d83646848bf7245001c18e8e, type: 3}
+  ResourceSourcePrefabs:
+  - {fileID: 4263650320586266, guid: 6da29d6ba183c3c4c853dd116c8d8016, type: 3}
+  - {fileID: 234552508539142496, guid: a01aa3d875d42034ba14bdecfb68235d, type: 3}
+  - {fileID: 3165599756474962498, guid: 5afd8bbab76449e419eabd59ee3f777c, type: 3}
+  ResourcesConfigs:
+  - {fileID: 11400000, guid: 824d1036371f3b14486e64fa7fef6303, type: 2}
+  - {fileID: 11400000, guid: 5f6413e80c1805f4a96ee08b02960058, type: 2}
+  - {fileID: 11400000, guid: 02e5b73427974ca4297986bb626ec6ae, type: 2}
