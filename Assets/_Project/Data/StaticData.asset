@@ -15,6 +15,7 @@ MonoBehaviour:
   JoystickCanvasPrefab: {fileID: 6792808347130160170, guid: ac8cb54cf8d12f64cb22b9a85c2a8dfe, type: 3}
   HudPrefab: {fileID: 4869103237456518012, guid: aa171c897149b7345a767cb3fd82014b, type: 3}
   ResourceViewPrefab: {fileID: 1409631745759517664, guid: 07d7f130e165b7f4babc073c69931580, type: 3}
+  NeededResourceViewPrefab: {fileID: 1960303471866830935, guid: 9a142e668f9288348877749e77a5107c, type: 3}
   PlayerPrefab: {fileID: 1084691848759891351, guid: 92ee8be0d83646848bf7245001c18e8e, type: 3}
   ResourceSourcePrefabs:
   - {fileID: 4263650320586266, guid: 6da29d6ba183c3c4c853dd116c8d8016, type: 3}

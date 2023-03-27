@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace _Project.Scripts.MinedResources
@@ -7,5 +8,23 @@ namespace _Project.Scripts.MinedResources
     {
         public ResourceType Type;
         public Sprite Icon;
+        public ResourcePackedPrefab[] PackedPrefabs;
+
+        public Resource GetResourcePrefab(int amount)
+        {
+            foreach (ResourcePackedPrefab packedPrefab in PackedPrefabs)
+                if (packedPrefab.MinAmount <= amount && amount < packedPrefab.MaxAmountExcluded)
+                    return packedPrefab.Prefab;
+
+            return null;
+        }
+    }
+
+    [Serializable]
+    public struct ResourcePackedPrefab
+    {
+        public Resource Prefab;
+        public int MinAmount;
+        public int MaxAmountExcluded;
     }
 }

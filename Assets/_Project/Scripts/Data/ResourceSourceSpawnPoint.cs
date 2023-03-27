@@ -4,6 +4,6 @@ namespace _Project.Scripts.Data
 {
     public class ResourceSourceSpawnPoint : MonoBehaviour
     {
-        public ResourceSourceType ResourceSourceType;
+        public ResourceSourceId ResourceSourceId;
     }
 }

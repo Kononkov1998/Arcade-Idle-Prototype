@@ -93,6 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9028666230257791011}
   - component: {fileID: 3165599756474962498}
+  - component: {fileID: 2190133962198115316}
   - component: {fileID: 629009495939420350}
   m_Layer: 0
   m_Name: Tree
@@ -129,10 +130,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcd7f9056d0643a1a082d66417b8d764, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _type: 0
-  _resourceType: 2
-  _resourcePrefab: {fileID: 8562449747249740131, guid: cf9da7b3c261e90409cab80fb4e7dab5, type: 3}
-  _config: {fileID: 11400000, guid: 84f3569f7a2e3f644b5a69c8f5dec7a0, type: 2}
+  _id: 0
+  _config: {fileID: 11400000, guid: 529dc291d7e05344db5feeb0bdde629f, type: 2}
+  _spawner: {fileID: 2190133962198115316}
+--- !u!114 &2190133962198115316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5766925712024118248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c774a5778445f1a43d1da19dc60b1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _resourceType: 3
+  _config: {fileID: 11400000, guid: 8671000ce54726744891b4443e24b595, type: 2}
 --- !u!65 &629009495939420350
 BoxCollider:
   m_ObjectHideFlags: 0

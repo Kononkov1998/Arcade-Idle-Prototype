@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using _Project.Scripts.MinedResources;
 using UniRx;
@@ -20,19 +19,13 @@ namespace _Project.Scripts.UI
             resources.ObserveReplace().Subscribe(OnResourceReplace);
         }
 
-        public void AddResourceView(ResourceType type, ResourceView view)
-        {
+        public void AddResourceView(ResourceType type, ResourceView view) => 
             _resourceViews.Add(type, view);
-        }
 
-        private void OnResourceAdd(DictionaryAddEvent<ResourceType, int> addEvent)
-        {
+        private void OnResourceAdd(DictionaryAddEvent<ResourceType, int> addEvent) => 
             _resourceViews[addEvent.Key].Render(addEvent.Value);
-        }
 
-        private void OnResourceReplace(DictionaryReplaceEvent<ResourceType, int> replaceEvent)
-        {
+        private void OnResourceReplace(DictionaryReplaceEvent<ResourceType, int> replaceEvent) => 
             _resourceViews[replaceEvent.Key].Render(replaceEvent.NewValue);
-        }
     }
 }

@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4dcea205b3c4c8ea0bba8e92960c183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _type: 0
+  _type: 1
   _amount: 1
   _canBePickedUp: 0
   _physics: {fileID: 6610611167221982745}
@@ -145,3 +145,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: -3656942176194378040}
+  _collider: {fileID: 7602515420448472099}

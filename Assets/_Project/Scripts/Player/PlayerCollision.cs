@@ -5,17 +5,17 @@ namespace _Project.Scripts.Player
 {
     public class PlayerCollision : MonoBehaviour
     {
-        public ResourceSource ResourceSourceInRange { get; private set; }
+        public IInteractive ResourceSourceInRange { get; private set; }
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.TryGetComponent(out ResourceSource resourceSource))
+            if (other.TryGetComponent(out IInteractive resourceSource))
                 ResourceSourceInRange = resourceSource;
         }
 
         private void OnTriggerExit(Collider other)
         {
-            if (other.TryGetComponent(out ResourceSource resourceSource) && resourceSource == ResourceSourceInRange)
+            if (other.TryGetComponent(out IInteractive resourceSource) && resourceSource == ResourceSourceInRange)
                 ResourceSourceInRange = null;
         }
     }

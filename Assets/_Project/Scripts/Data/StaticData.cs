@@ -12,11 +12,18 @@ namespace _Project.Scripts.Data
         public Canvas JoystickCanvasPrefab;
         public Hud HudPrefab;
         public ResourceView ResourceViewPrefab;
+        public ResourceView NeededResourceViewPrefab;
         public PlayerRoot PlayerPrefab;
         public ResourceSource[] ResourceSourcePrefabs;
         public ResourceConfig[] ResourcesConfigs; 
 
-        public ResourceSource GetResourceSourcePrefab(ResourceSourceType resourceSourceType) =>
-            ResourceSourcePrefabs.First(x => x.Type == resourceSourceType);
+        public ResourceSource GetResourceSourcePrefab(ResourceSourceId resourceSourceId) =>
+            ResourceSourcePrefabs.First(x => x.Id == resourceSourceId);
+        
+        public Resource GetResourcePrefab(ResourceType resourceType, int amount) =>
+            ResourcesConfigs.First(x => x.Type == resourceType).GetResourcePrefab(amount);
+        
+        public ResourceConfig GetResourceConfig(ResourceType resourceType) =>
+            ResourcesConfigs.First(x => x.Type == resourceType);
     }
 }

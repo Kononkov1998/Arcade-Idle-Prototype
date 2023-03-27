@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &15057204
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 15057205}
+  m_Layer: 0
+  m_Name: TransferHoldPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &15057205
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 15057204}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 2.379, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1084691848759891356}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &870108745
 GameObject:
   m_ObjectHideFlags: 0
@@ -149,7 +180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a253408c431812e4fa4fb20a9c70dc52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _miner: {fileID: 8394177475961897878}
+  _interactor: {fileID: 8394177475961897878}
   _image: {fileID: 870108747}
   _fill: {fileID: 1913859951}
 --- !u!1 &1913859949
@@ -369,7 +400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b81b69148500140478ef4360b1918742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerInventory: {fileID: 1084691848759891355}
+  _inventory: {fileID: 1084691848759891355}
   _collider: {fileID: 1084691848166562251}
 --- !u!1 &1084691848759891359
 GameObject:
@@ -411,6 +442,7 @@ Transform:
   - {fileID: 1084691848166562250}
   - {fileID: 1084691849548005887}
   - {fileID: 1907539804}
+  - {fileID: 15057205}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -482,6 +514,7 @@ MonoBehaviour:
   _pickUp: {fileID: 1084691848166562248}
   _movement: {fileID: 1084691848759891354}
   _inventory: {fileID: 1084691848759891355}
+  _interactor: {fileID: 8394177475961897878}
 --- !u!114 &1084691848759891354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -509,6 +542,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pickUpPoint: {fileID: 1084691849548005887}
+  _transferHoldPoint: {fileID: 15057205}
 --- !u!114 &1084691848759891350
 MonoBehaviour:
   m_ObjectHideFlags: 0

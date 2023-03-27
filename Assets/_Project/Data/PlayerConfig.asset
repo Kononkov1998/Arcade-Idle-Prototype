@@ -13,3 +13,7 @@ MonoBehaviour:
   m_Name: PlayerConfig
   m_EditorClassIdentifier: 
   PickUpRadius: 2
+  SpreadRadius: 1
+  TransferDelay: 0.25
+  TransferToHoldPointDuration: 0.25
+  TransferDuration: 0.5

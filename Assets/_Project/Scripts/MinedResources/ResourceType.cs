@@ -2,8 +2,9 @@ namespace _Project.Scripts.MinedResources
 {
     public enum ResourceType
     {
-        Crystal,
-        Metal,
-        Wood
+        None = 0,
+        Crystal = 1,
+        Metal = 2,
+        Wood = 3
     }
 }

@@ -6,7 +6,7 @@ namespace _Project.Scripts.Player
 {
     public class PlayerPickUp : MonoBehaviour
     {
-        [SerializeField] private PlayerInventory _playerInventory;
+        [SerializeField] private Inventory _inventory;
         [SerializeField] private SphereCollider _collider;
 
         private void OnTriggerEnter(Collider other)
@@ -16,22 +16,22 @@ namespace _Project.Scripts.Player
                 if (resource.CanBePickedUp)
                     PickUpResource(resource);
                 else
-                    resource.CanBePickedUpNow += PickUpWhenAvailable;
+                    resource.CanBePickedUpNow += PickUpOnAvailable;
             }
         }
 
         private void OnTriggerExit(Collider other)
         {
             if (other.TryGetComponent(out Resource resource))
-                resource.CanBePickedUpNow -= PickUpWhenAvailable;
+                resource.CanBePickedUpNow -= PickUpOnAvailable;
         }
 
         public void SetRadius(float radius) =>
             _collider.radius = radius;
 
-        private void PickUpWhenAvailable(Resource resource)
+        private void PickUpOnAvailable(Resource resource)
         {
-            resource.CanBePickedUpNow -= PickUpWhenAvailable;
+            resource.CanBePickedUpNow -= PickUpOnAvailable;
             PickUpResource(resource);
         }
 
@@ -39,13 +39,13 @@ namespace _Project.Scripts.Player
         {
             resource.OnPickedUp();
             Transform resourceTransform = resource.transform;
-            resourceTransform.SetParent(_playerInventory.PickUpPoint);
+            resourceTransform.SetParent(_inventory.PickUpPoint);
 
             const float duration = 0.5f;
             DOTween.Sequence(resourceTransform)
                 .Join(resourceTransform.DOLocalJump(Vector3.zero, 1f, 1, duration))
                 .Join(resourceTransform.DOScale(Vector3.zero, duration).SetEase(Ease.InQuad))
-                .OnComplete(() => _playerInventory.Inventory.AddResource(resource.Type, resource.Amount));
+                .OnComplete(() => _inventory.Storage.AddResource(resource.Type, resource.Amount));
         }
     }
 }
