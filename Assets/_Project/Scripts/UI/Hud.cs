@@ -26,6 +26,6 @@ namespace _Project.Scripts.UI
             _resourceViews[addEvent.Key].Render(addEvent.Value);
 
         private void OnResourceReplace(DictionaryReplaceEvent<ResourceType, int> replaceEvent) => 
-            _resourceViews[replaceEvent.Key].Render(replaceEvent.NewValue);
+            _resourceViews[replaceEvent.Key].Render(replaceEvent.OldValue,replaceEvent.NewValue);
     }
 }

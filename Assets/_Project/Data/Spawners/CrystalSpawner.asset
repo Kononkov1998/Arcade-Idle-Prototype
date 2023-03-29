@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CrystalSpawner
   m_EditorClassIdentifier: 
   ResourcesCount: 1
-  AmountInResourceObject: 1
+  AmountInResourceObject: 100
   MinResourceForce: 300
   MaxResourceForce: 500
   ResourcePickUpDelay: 2

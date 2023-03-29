@@ -1,4 +1,3 @@
-using System;
 using DG.Tweening;
 using UniRx;
 using UnityEngine;
@@ -7,31 +6,63 @@ namespace _Project.Scripts.MinedResources.Visuals
 {
     public class CrystalVisual : MonoBehaviour
     {
-        private const string MaterialColorName = "_ColorTint1";
-    
         [SerializeField] private ResourceSource _source;
-        [SerializeField] private Material _material;
-        [SerializeField] private Color _activeColor;
-        [SerializeField] private Color _inactiveColor;
-        private IDisposable _disposable;
+        [SerializeField] private ParticleSystem _hitEffect;
+        [SerializeField] private Transform _model;
+        [SerializeField] private BreakableCrystal[] _breakableCrystals;
+        [Header("Animation Tweaks")]
+        [SerializeField] private float _punchScale = .2f;
+        [SerializeField] private float _punchDuration = .2f;
+        [SerializeField] private float _timeToShowBreakableCrystal = 0.25f;
+        [SerializeField] private float _timeToHideBreakableCrystal = 0.05f;
 
-        private void Start() => 
-            _disposable = _source.Durability.Subscribe(OnDurabilityChanged);
+        private int _durability;
 
-
-        private void OnDestroy() => 
-            _disposable?.Dispose();
-
-        private void OnDurabilityChanged(int durability)
+        private void Start()
         {
-            float durabilityPercent = (float) durability / _source.MaxDurability;
-            UpdateColor(durabilityPercent);
+            _durability = _source.Durability.Value;
+            InitCrystals();
+            _source.Durability.Subscribe(OnDurabilityChanged);
         }
 
-        private void UpdateColor(float durabilityPercent)
+        private void InitCrystals()
         {
-            Color newColor = Color.Lerp(_inactiveColor, _activeColor, durabilityPercent);
-            _material.DOColor(newColor, MaterialColorName, 0.1f);
+            float durabilityForCrystal = (float) _source.MaxDurability / _breakableCrystals.Length;
+            for (var i = 0; i < _breakableCrystals.Length; i++)
+            {
+                float thresholdForHide = durabilityForCrystal * (i + 1);
+                _breakableCrystals[i].Init(thresholdForHide, _timeToShowBreakableCrystal, _timeToHideBreakableCrystal);
+            }
+        }
+
+        private void OnDurabilityChanged(int newDurability)
+        {
+            if (newDurability < _durability)
+            {
+                Instantiate(_hitEffect, transform);
+                _model.DOPunchScale(Vector3.one * _punchScale, _punchDuration);
+                HideBrokenCrystals(newDurability);
+            }
+            else if (newDurability == _source.MaxDurability)
+            {
+                ShowAllCrystals();
+            }
+
+            _durability = newDurability;
+        }
+
+        private void HideBrokenCrystals(int newDurability)
+        {
+            foreach (BreakableCrystal crystal in _breakableCrystals)
+                if (crystal.Visible && crystal.ThresholdForHide > newDurability)
+                    crystal.Hide();
+        }
+
+        private void ShowAllCrystals()
+        {
+            foreach (BreakableCrystal crystal in _breakableCrystals)
+                if (!crystal.Visible)
+                    crystal.Show();
         }
     }
 }

@@ -19,10 +19,12 @@ namespace _Project.Scripts.MinedResources
         {
             for (var i = 0; i < _config.ResourcesCount; i++)
             {
-                Resource resource = Instantiate(_resourcePrefab, transform.position, Quaternion.identity);
                 const float coneRadius = 0.2f;
                 const float coneHeight = 1f;
-                Vector2 xzOffset = Random.insideUnitCircle * coneRadius;
+                
+                Resource resource = Instantiate(_resourcePrefab, transform.position, Quaternion.identity);
+                float x = Random.Range(-coneRadius, coneRadius);
+                var xzOffset = new Vector2(x, -coneRadius);
                 Vector3 direction = new Vector3(xzOffset.x, coneHeight, xzOffset.y).normalized;
                 float randomForce = Random.Range(_config.MinResourceForce, _config.MaxResourceForce);
 

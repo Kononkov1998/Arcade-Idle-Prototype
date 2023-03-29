@@ -12,6 +12,7 @@ namespace _Project.Scripts.UI
     {
         [SerializeField] private ResourceFactory _factory;
         [SerializeField] private float _distanceBetweenViews = .3f;
+        [SerializeField] private GameObject _progressBackground;
         [SerializeField] private Image _progress;
 
         private Dictionary<ResourceType, ResourceView> _resourceViews;
@@ -58,11 +59,11 @@ namespace _Project.Scripts.UI
 
         private void OnCreationProgressChanged(float progress)
         {
-            if (_progress.enabled && progress == 0f)
-                _progress.enabled = false;
-            else if (!_progress.enabled && progress > 0f)
-                _progress.enabled = true;
-        
+            if (_progressBackground.activeSelf && progress == 0f)
+                _progressBackground.SetActive(false);
+            else if (!_progressBackground.activeSelf && progress > 0f)
+                _progressBackground.SetActive(true);
+
             _progress.fillAmount = progress;
         }
     }

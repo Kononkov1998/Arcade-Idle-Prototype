@@ -302,7 +302,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: 1
   _config: {fileID: 11400000, guid: 0106d60445a68c14aafb8f55507a1526, type: 2}
-  _spawner: {fileID: 0}
+  _spawner: {fileID: 7050044955777188031}
 --- !u!114 &7050044955777188031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -316,7 +316,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _resourceType: 2
-  _config: {fileID: 11400000, guid: 8671000ce54726744891b4443e24b595, type: 2}
+  _config: {fileID: 11400000, guid: 7f18b2ec216aee14c80371ffe4c9a68d, type: 2}
 --- !u!65 &878294322
 BoxCollider:
   m_ObjectHideFlags: 0
