@@ -29,6 +29,8 @@ namespace _Project.Scripts.UI
 
             if (newCount > oldCount)
             {
+                _count.transform.DORewind();
+                _icon.transform.DORewind();
                 _count.transform.DOPunchScale(Vector3.one * 0.1f, 0.2f);
                 _icon.transform.DOPunchScale(Vector3.one * 0.1f, 0.2f);
             }
