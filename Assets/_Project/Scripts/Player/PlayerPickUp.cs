@@ -8,6 +8,7 @@ namespace _Project.Scripts.Player
     {
         [SerializeField] private Inventory _inventory;
         [SerializeField] private SphereCollider _collider;
+        [SerializeField] private float _pickUpDuration = 0.5f;
 
         private void OnTriggerEnter(Collider other)
         {
@@ -41,10 +42,9 @@ namespace _Project.Scripts.Player
             Transform resourceTransform = resource.transform;
             resourceTransform.SetParent(_inventory.PickUpPoint);
 
-            const float duration = 0.5f;
             DOTween.Sequence(resourceTransform)
-                .Join(resourceTransform.DOLocalJump(Vector3.zero, 1f, 1, duration))
-                .Join(resourceTransform.DOScale(Vector3.zero, duration).SetEase(Ease.InQuad))
+                .Join(resourceTransform.DOLocalJump(Vector3.zero, 1f, 1, _pickUpDuration))
+                .Join(resourceTransform.DOScale(Vector3.zero, _pickUpDuration).SetEase(Ease.InQuad))
                 .OnComplete(() => _inventory.Storage.AddResource(resource.Type, resource.Amount));
         }
     }

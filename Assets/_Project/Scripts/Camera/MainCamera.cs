@@ -5,11 +5,9 @@ namespace _Project.Scripts.Camera
 {
     public class MainCamera : MonoBehaviour
     {
-        [SerializeField] private CinemachineVirtualCamera VirtualCamera;
+        [SerializeField] private CinemachineVirtualCamera _virtualCamera;
 
-        public void Init(Transform followTarget)
-        {
-            VirtualCamera.Follow = followTarget;
-        }
+        public void Follow(Transform target) => 
+            _virtualCamera.Follow = target;
     }
 }

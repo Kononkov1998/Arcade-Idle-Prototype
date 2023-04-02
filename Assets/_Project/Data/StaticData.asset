@@ -25,3 +25,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 824d1036371f3b14486e64fa7fef6303, type: 2}
   - {fileID: 11400000, guid: 5f6413e80c1805f4a96ee08b02960058, type: 2}
   - {fileID: 11400000, guid: 02e5b73427974ca4297986bb626ec6ae, type: 2}
+  SaveFileName: Save.json

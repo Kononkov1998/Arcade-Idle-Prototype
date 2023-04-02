@@ -1,4 +1,4 @@
-using _Project.Scripts.Input;
+using _Project.Scripts.Services.Input;
 using UnityEngine;
 using UnityEngine.AI;
 

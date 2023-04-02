@@ -1,3 +1,4 @@
+using _Project.Scripts.MinedResources.Source;
 using DG.Tweening;
 using UniRx;
 using UnityEngine;

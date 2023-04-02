@@ -1,13 +1,16 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using _Project.Scripts.MinedResources;
 using UniRx;
+using UnityEngine;
 
 namespace _Project.Scripts.Player
 {
+    [Serializable]
     public class Storage
     {
-        private readonly ReactiveDictionary<ResourceType, int> _resources;
+        [SerializeReference] private readonly ReactiveDictionary<ResourceType, int> _resources;
         public IReadOnlyReactiveDictionary<ResourceType, int> Resources => _resources;
 
         public Storage() =>
@@ -41,8 +44,8 @@ namespace _Project.Scripts.Player
         public void Clear() =>
             _resources.Clear();
 
-        public bool HasResource(ResourceType type) =>
-            _resources.ContainsKey(type) && _resources[type] > 0;
+        public bool HasResource(ResourceType type, int minAmount = 1) =>
+            _resources.ContainsKey(type) && _resources[type] >= minAmount;
 
         public bool Empty() =>
             _resources.Count == 0 || _resources.All(x => x.Value == 0);

@@ -9,6 +9,11 @@ namespace _Project.Scripts.UI
     {
         [SerializeField] private TextMeshProUGUI _count;
         [SerializeField] private Image _icon;
+        
+        [Header("Animation Tweaks")]
+        [SerializeField] private float _countChangeDuration = 0.5f;
+        [SerializeField] private float _punchScale = 0.1f;
+        [SerializeField] private float _punchDuration = 0.2f;
 
         public void Init(int count, Sprite icon)
         {
@@ -25,14 +30,14 @@ namespace _Project.Scripts.UI
         public void Render(int oldCount, int newCount)
         {
             ShowHideIfNeeded(newCount);
-            DOTween.To(() => oldCount, x => _count.text = x.ToString(), newCount, .5f);
+            DOTween.To(() => oldCount, x => _count.text = x.ToString(), newCount, _countChangeDuration);
 
             if (newCount > oldCount)
             {
                 _count.transform.DORewind();
                 _icon.transform.DORewind();
-                _count.transform.DOPunchScale(Vector3.one * 0.1f, 0.2f);
-                _icon.transform.DOPunchScale(Vector3.one * 0.1f, 0.2f);
+                _count.transform.DOPunchScale(Vector3.one * _punchScale, _punchDuration);
+                _icon.transform.DOPunchScale(Vector3.one * _punchScale, _punchDuration);
             }
         }
 

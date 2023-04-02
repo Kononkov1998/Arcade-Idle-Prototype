@@ -1,5 +1,88 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1827711720
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1827711721}
+  - component: {fileID: 1827711723}
+  - component: {fileID: 1827711722}
+  m_Layer: 0
+  m_Name: ZoneVisual
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 8
+  m_IsActive: 1
+--- !u!4 &1827711721
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1827711720}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0.01, z: 0}
+  m_LocalScale: {x: 5, y: 0.01, z: 5}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5598257019528472437}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &1827711723
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1827711720}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &1827711722
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1827711720}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 01c16372cbf7b6e4998b7cd8f5517c07, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &2675534900667502650
 GameObject:
   m_ObjectHideFlags: 0
@@ -36,7 +119,7 @@ Transform:
   - {fileID: 5598330838944465691}
   - {fileID: 5598253733836829511}
   m_Father: {fileID: 5598257019528472437}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5600326372984488199
 GameObject:
@@ -56,7 +139,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &5598257019528472437
 Transform:
@@ -70,8 +153,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8467217947849847108}
   - {fileID: 5598414471097135889}
+  - {fileID: 1827711721}
+  - {fileID: 8467217947849847108}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -100,7 +184,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcd7f9056d0643a1a082d66417b8d764, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _id: 2
   _config: {fileID: 11400000, guid: 84f3569f7a2e3f644b5a69c8f5dec7a0, type: 2}
   _spawner: {fileID: 1061714552306721798}
 --- !u!114 &1061714552306721798
@@ -130,10 +213,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _source: {fileID: 4263650320586266}
-  _hitEffect: {fileID: 0}
-  _crystalModels: []
+  _hitEffect: {fileID: 9105024205662050001, guid: 96a6aa52c0952be41b99dca87437a030, type: 3}
+  _model: {fileID: 8467217947849847108}
+  _breakableCrystals:
+  - {fileID: 1470066210}
+  - {fileID: 1105549192}
+  - {fileID: 176015529}
+  - {fileID: 771849931}
+  - {fileID: 784795007}
+  - {fileID: 427447591}
   _punchScale: 0.2
   _punchDuration: 0.2
+  _timeToShowBreakableCrystal: 0.25
+  _timeToHideBreakableCrystal: 0.05
 --- !u!1 &5600403528544778211
 GameObject:
   m_ObjectHideFlags: 0
@@ -145,12 +237,13 @@ GameObject:
   - component: {fileID: 5597531511265323599}
   - component: {fileID: 5604962165841120479}
   - component: {fileID: 5614441419925265117}
+  - component: {fileID: 771849931}
   m_Layer: 0
   m_Name: BetterCrystal01 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &5597531511265323599
 Transform:
@@ -217,6 +310,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &771849931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5600403528544778211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfa97b0e928c4c5da2d38ca349e06af6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5600859826061491141
 GameObject:
   m_ObjectHideFlags: 0
@@ -228,12 +333,13 @@ GameObject:
   - component: {fileID: 5597625831155744497}
   - component: {fileID: 5605743587980579513}
   - component: {fileID: 5614528578731902473}
+  - component: {fileID: 176015529}
   m_Layer: 0
   m_Name: BetterCrystal01 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &5597625831155744497
 Transform:
@@ -300,6 +406,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &176015529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5600859826061491141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfa97b0e928c4c5da2d38ca349e06af6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5600941585722153985
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,12 +429,13 @@ GameObject:
   - component: {fileID: 5597504277130136453}
   - component: {fileID: 5605028420558820041}
   - component: {fileID: 5615185569018280747}
+  - component: {fileID: 1105549192}
   m_Layer: 0
   m_Name: BetterCrystal01 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &5597504277130136453
 Transform:
@@ -383,6 +502,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1105549192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5600941585722153985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfa97b0e928c4c5da2d38ca349e06af6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5600957406338361037
 GameObject:
   m_ObjectHideFlags: 0
@@ -394,12 +525,13 @@ GameObject:
   - component: {fileID: 5598253733836829511}
   - component: {fileID: 5604176213766833231}
   - component: {fileID: 5615188916545658715}
+  - component: {fileID: 427447591}
   m_Layer: 0
   m_Name: BetterCrystal01 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &5598253733836829511
 Transform:
@@ -466,6 +598,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &427447591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5600957406338361037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfa97b0e928c4c5da2d38ca349e06af6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5600963535126120475
 GameObject:
   m_ObjectHideFlags: 0
@@ -481,7 +625,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &5598414471097135889
 Transform:
@@ -496,7 +640,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5598257019528472437}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!108 &5493937991786453289
 Light:
@@ -571,12 +715,13 @@ GameObject:
   - component: {fileID: 5598330838944465691}
   - component: {fileID: 5605707742835303081}
   - component: {fileID: 5614566655157045613}
+  - component: {fileID: 784795007}
   m_Layer: 0
   m_Name: BetterCrystal01 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &5598330838944465691
 Transform:
@@ -643,6 +788,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &784795007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5601159077576311365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfa97b0e928c4c5da2d38ca349e06af6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5601258349055534207
 GameObject:
   m_ObjectHideFlags: 0
@@ -659,7 +816,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &5597705116581254829
 Transform:
@@ -737,12 +894,13 @@ GameObject:
   - component: {fileID: 5598453765475686653}
   - component: {fileID: 5604820248037379919}
   - component: {fileID: 5614642920573371525}
+  - component: {fileID: 1470066210}
   m_Layer: 0
   m_Name: BetterCrystal01 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &5598453765475686653
 Transform:
@@ -809,3 +967,15 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1470066210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5601903658557149739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfa97b0e928c4c5da2d38ca349e06af6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

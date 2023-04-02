@@ -18,16 +18,11 @@ namespace _Project.Scripts.Player
         public Transform PickUpPoint => _pickUpPoint;
         public Storage Storage { get; private set; }
 
-        public void Init(PlayerConfig config, StaticData staticData)
+        public void Init(PlayerConfig config, StaticData staticData, Dictionary<ResourceType, int> resources)
         {
             _config = config;
             _staticData = staticData;
-            Storage = new Storage(new Dictionary<ResourceType, int>
-            {
-                {ResourceType.Crystal, 50},
-                {ResourceType.Wood, 50},
-                {ResourceType.Metal, 50}
-            });
+            Storage = new Storage(resources);
         }
 
         public void TransferResource(ResourceType type, Vector3 targetPosition, Action onComplete)

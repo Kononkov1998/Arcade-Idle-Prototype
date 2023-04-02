@@ -1,5 +1,8 @@
 using _Project.Scripts.Camera;
 using _Project.Scripts.MinedResources;
+using _Project.Scripts.MinedResources.Spawner;
+using _Project.Scripts.Services.SaveLoad;
+using _Project.Scripts.Tutorial;
 using NaughtyAttributes;
 using UnityEngine;
 
@@ -10,13 +13,16 @@ namespace _Project.Scripts.Data
         public Transform UiRoot;
         public MainCamera MainCamera;
         public Transform DefaultPlayerSpawnPoint;
-        public ResourceSourceSpawnPoint[] ResourceSourcesSpawnPoints;
         public ResourceSpawner[] ResourceSpawners;
-
+        public GameSaver GameSaver;
+        public StartTutorial Tutorial;
+        
         [Button]
-        private void FillResourceSourcePoints()
+        private void CollectAll()
         {
-            ResourceSourcesSpawnPoints = FindObjectsOfType<ResourceSourceSpawnPoint>();
+            CollectResourceSpawners();
+            MainCamera = FindObjectOfType<MainCamera>();
+            GameSaver = FindObjectOfType<GameSaver>();
         }
         
         [Button]

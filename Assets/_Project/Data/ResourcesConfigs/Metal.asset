@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ResourceConfig
   Type: 2
   Icon: {fileID: 21300000, guid: 255fd2a73d1c23a43aeb70011e4d8fcc, type: 3}
+  WhiteIcon: {fileID: 21300000, guid: c0378fa6ee56c694c9625d615c8fd59b, type: 3}
   PackedPrefabs:
   - Prefab: {fileID: 8562449747249740131, guid: 81b014395c3866849816276a5dc7d9e1, type: 3}
     MinAmount: 1

@@ -23,19 +23,19 @@ namespace _Project.Scripts.Player
 
         private void Update()
         {
-            if (!ResourceCanBeHit())
+            if (!ResourceCanBeInteracted())
                 return;
 
             UpdateStayingTime();
 
-            if (CanHit())
+            if (CanInteract())
             {
                 ResourceSourceInRange.Interact(_player);
                 ResetStayingTime();
             }
         }
 
-        private bool CanHit() =>
+        private bool CanInteract() =>
             _interactionProgress.Value > ResourceSourceInRange.TimeToInteract;
 
         private void ResetStayingTime() =>
@@ -49,7 +49,7 @@ namespace _Project.Scripts.Player
                 _interactionProgress.Value = 0f;
         }
 
-        private bool ResourceCanBeHit() =>
+        private bool ResourceCanBeInteracted() =>
             ResourceSourceInRange != null && ResourceSourceInRange.CanInteract(_player);
     }
 }

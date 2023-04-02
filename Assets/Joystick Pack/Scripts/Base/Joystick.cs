@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using _Project.Scripts;
-using _Project.Scripts.Input;
+using _Project.Scripts.Services.Input;
 using UnityEngine;
 using UnityEngine.EventSystems;
 

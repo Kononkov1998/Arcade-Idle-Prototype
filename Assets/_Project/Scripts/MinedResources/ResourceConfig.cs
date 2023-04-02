@@ -8,6 +8,7 @@ namespace _Project.Scripts.MinedResources
     {
         public ResourceType Type;
         public Sprite Icon;
+        public Sprite WhiteIcon;
         public ResourcePackedPrefab[] PackedPrefabs;
 
         public Resource GetResourcePrefab(int amount)
