@@ -9,16 +9,16 @@ namespace _Project.Scripts.Player
         [SerializeField] private PlayerMovement _movement;
         [SerializeField] private PlayerCollision _collision;
         private ReactiveProperty<float> _interactionProgress;
-        private IPlayer _player;
+        private IActor _actor;
 
         public float TimeToHit => ResourceSourceInRange.TimeToInteract;
         public IReadOnlyReactiveProperty<float> InteractionProgress => _interactionProgress;
         private IInteractive ResourceSourceInRange => _collision.ResourceSourceInRange;
 
-        public void Init(IPlayer player)
+        public void Init(IActor actor)
         {
             _interactionProgress = new ReactiveProperty<float>();
-            _player = player;
+            _actor = actor;
         }
 
         private void Update()
@@ -30,7 +30,7 @@ namespace _Project.Scripts.Player
 
             if (CanInteract())
             {
-                ResourceSourceInRange.Interact(_player);
+                ResourceSourceInRange.Interact(_actor);
                 ResetStayingTime();
             }
         }
@@ -50,6 +50,6 @@ namespace _Project.Scripts.Player
         }
 
         private bool ResourceCanBeInteracted() =>
-            ResourceSourceInRange != null && ResourceSourceInRange.CanInteract(_player);
+            ResourceSourceInRange != null && ResourceSourceInRange.CanInteract(_actor);
     }
 }

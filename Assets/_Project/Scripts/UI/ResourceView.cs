@@ -15,7 +15,7 @@ namespace _Project.Scripts.UI
         [SerializeField] private float _punchScale = 0.1f;
         [SerializeField] private float _punchDuration = 0.2f;
 
-        public void Init(int count, Sprite icon)
+        public void Construct(int count, Sprite icon)
         {
             _count.text = count.ToString();
             _icon.sprite = icon;

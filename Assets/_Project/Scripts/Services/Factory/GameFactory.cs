@@ -19,7 +19,7 @@ namespace _Project.Scripts.Services.Factory
         public PlayerRoot CreatePlayer(Transform transform, IInput input, Dictionary<ResourceType, int> resources)
         {
             PlayerRoot player = Object.Instantiate(_staticData.PlayerPrefab, transform.position, Quaternion.identity);
-            player.Init(_staticData, input, resources);
+            player.Construct(_staticData, input, resources);
             return player;
         }
 
@@ -32,12 +32,13 @@ namespace _Project.Scripts.Services.Factory
         public void CreateHud(Transform parent, Storage storage)
         {
             Hud hud = Object.Instantiate(_staticData.HudPrefab, parent);
+            hud.Construct();
             hud.Init(storage.Resources);
             foreach (ResourceConfig config in _staticData.ResourcesConfigs)
             {
                 ResourceView view = Object.Instantiate(_staticData.ResourceViewPrefab, hud.ResourcesParent);
                 int resourceAmount = storage.HasResource(config.Type) ? storage.Resources[config.Type] : 0;
-                view.Init(resourceAmount, config.Icon);
+                view.Construct(resourceAmount, config.Icon);
                 hud.AddResourceView(config.Type, view);
             }
         }

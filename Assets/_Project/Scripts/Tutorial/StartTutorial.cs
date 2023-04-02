@@ -24,7 +24,7 @@ namespace _Project.Scripts.Tutorial
             _steps.ForEach(x => x.Construct(_player));
         }
 
-        public void Init()
+        public void Enable()
         {
             _arrow.AttachTo(_player.transform);
             _enabled = true;

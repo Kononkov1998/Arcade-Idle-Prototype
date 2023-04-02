@@ -22,6 +22,7 @@ namespace _Project.Scripts
             DontDestroyOnLoad(gameObject);
             if (DestroySelfIfAnotherEntryPointExists())
                 return;
+            
             Execute();
         }
 
@@ -54,7 +55,7 @@ namespace _Project.Scripts
         {
             var levelEntryPoint = FindObjectOfType<LevelEntryPoint>();
             levelEntryPoint.Construct(_gameFactory, _pathProvider, _saveLoad, _staticData, _persistentData);
-            levelEntryPoint.Init();
+            levelEntryPoint.Execute();
         }
 
         private bool DestroySelfIfAnotherEntryPointExists()

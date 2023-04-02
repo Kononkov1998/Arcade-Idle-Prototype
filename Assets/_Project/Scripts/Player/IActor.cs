@@ -1,6 +1,6 @@
 namespace _Project.Scripts.Player
 {
-    public interface IPlayer
+    public interface IActor
     {
         public Inventory Inventory { get; }
     }

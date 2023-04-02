@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using _Project.Scripts.Data;
 using _Project.Scripts.MinedResources.Spawner;
 using _Project.Scripts.Player;
 using UniRx;
@@ -26,7 +25,7 @@ namespace _Project.Scripts.MinedResources.Factory
         public IReadOnlyReactiveProperty<float> CreationProgress => _creationProgress;
         public IDictionary<ResourceType, int> StartNeededResources => _config.NeededResources;
 
-        public void Init()
+        public void Construct()
         {
             _creationProgress = new FloatReactiveProperty();
             _resourcesInTransfer = new Storage();
@@ -43,10 +42,10 @@ namespace _Project.Scripts.MinedResources.Factory
         private void SpawnResources() =>
             _spawner.Spawn();
 
-        public bool CanInteract(IPlayer player)
+        public bool CanInteract(IActor actor)
         {
             foreach ((ResourceType resourceType, int neededAmount) in NeededResources.Resources)
-                if (CanBeTransferredAmount(player.Inventory.Storage, resourceType, neededAmount) > 0)
+                if (CanBeTransferredAmount(actor.Inventory.Storage, resourceType, neededAmount) > 0)
                     return true;
 
             return false;
@@ -73,10 +72,10 @@ namespace _Project.Scripts.MinedResources.Factory
             throw new InvalidOperationException("No needed resource found");
         }
 
-        public void Interact(IPlayer player)
+        public void Interact(IActor actor)
         {
-            ResourceType type = GetNeededResourceData(player.Inventory.Storage);
-            Inventory inventory = player.Inventory;
+            ResourceType type = GetNeededResourceData(actor.Inventory.Storage);
+            Inventory inventory = actor.Inventory;
 
             inventory.Storage.RemoveResource(type, ResourceAmountInOneObject);
             _resourcesInTransfer.AddResource(type, ResourceAmountInOneObject);

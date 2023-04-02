@@ -12,7 +12,7 @@ namespace _Project.Scripts.MinedResources.Source
         [SerializeField] private ResourceSpawner _spawner;
         private ReactiveProperty<int> _durability;
 
-        public bool CanInteract(IPlayer _) => _durability.Value > 0;
+        public bool CanInteract(IActor _) => _durability.Value > 0;
         public IReadOnlyReactiveProperty<int> Durability => _durability;
         public int MaxDurability => _config.Durability;
         public float TimeToInteract { get; private set; }
@@ -23,7 +23,7 @@ namespace _Project.Scripts.MinedResources.Source
             TimeToInteract = 1f / _config.HitsPerSecond;
         }
 
-        public void Interact(IPlayer _)
+        public void Interact(IActor _)
         {
             SpawnResources();
             _durability.Value--;

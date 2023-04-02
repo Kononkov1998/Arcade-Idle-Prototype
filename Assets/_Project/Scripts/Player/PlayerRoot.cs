@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace _Project.Scripts.Player
 {
-    public class PlayerRoot : MonoBehaviour, IPlayer
+    public class PlayerRoot : MonoBehaviour, IActor
     {
         [SerializeField] private PlayerConfig _config;
         [SerializeField] private PlayerPickUp _pickUp;
@@ -16,7 +16,7 @@ namespace _Project.Scripts.Player
 
         public Inventory Inventory => _inventory;
 
-        public void Init(StaticData staticData, IInput input, Dictionary<ResourceType, int> resources)
+        public void Construct(StaticData staticData, IInput input, Dictionary<ResourceType, int> resources)
         {
             _movement.Init(input);
             _interactor.Init(this);
