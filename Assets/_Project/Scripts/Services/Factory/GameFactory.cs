@@ -5,7 +5,6 @@ using _Project.Scripts.Player;
 using _Project.Scripts.Services.Input;
 using _Project.Scripts.UI;
 using UnityEngine;
-using Object = UnityEngine.Object;
 
 namespace _Project.Scripts.Services.Factory
 {
@@ -16,9 +15,9 @@ namespace _Project.Scripts.Services.Factory
         public GameFactory(StaticData staticData) =>
             _staticData = staticData;
 
-        public PlayerRoot CreatePlayer(Transform transform, IInput input, Dictionary<ResourceType, int> resources)
+        public PlayerRoot CreatePlayer(Transform spawnPoint, IInput input, Dictionary<ResourceType, int> resources)
         {
-            PlayerRoot player = Object.Instantiate(_staticData.PlayerPrefab, transform.position, Quaternion.identity);
+            PlayerRoot player = Object.Instantiate(_staticData.PlayerPrefab, spawnPoint.position, Quaternion.identity);
             player.Construct(_staticData, input, resources);
             return player;
         }

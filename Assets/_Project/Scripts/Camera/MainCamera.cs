@@ -7,7 +7,7 @@ namespace _Project.Scripts.Camera
     {
         [SerializeField] private CinemachineVirtualCamera _virtualCamera;
 
-        public void Follow(Transform target) => 
+        public void Follow(Transform target) =>
             _virtualCamera.Follow = target;
     }
 }

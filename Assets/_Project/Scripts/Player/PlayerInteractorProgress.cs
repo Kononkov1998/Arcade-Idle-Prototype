@@ -10,7 +10,7 @@ namespace _Project.Scripts.Player
         [SerializeField] private Image _image;
         [SerializeField] private Image _fill;
 
-        private void Start() => 
+        private void Start() =>
             _interactor.InteractionProgress.Subscribe(OnStayingTimeChanged);
 
         private void OnStayingTimeChanged(float stayingTime)

@@ -1,7 +1,6 @@
 using _Project.Scripts.Data;
 using _Project.Scripts.Extensions;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 namespace _Project.Scripts.MinedResources.Spawner
 {

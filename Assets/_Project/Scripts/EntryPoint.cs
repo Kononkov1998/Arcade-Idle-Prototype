@@ -11,18 +11,18 @@ namespace _Project.Scripts
     public class EntryPoint : MonoBehaviour
     {
         [SerializeField] private StaticData _staticData;
-        private IPathProvider _pathProvider;
-        private ISaveLoadService _saveLoad;
         private GameFactory _gameFactory;
-        private PersistentData _persistentData;
         private LevelManager _levelManager;
+        private IPathProvider _pathProvider;
+        private PersistentData _persistentData;
+        private ISaveLoadService _saveLoad;
 
         private void Awake()
         {
             DontDestroyOnLoad(gameObject);
             if (DestroySelfIfAnotherEntryPointExists())
                 return;
-            
+
             Execute();
         }
 

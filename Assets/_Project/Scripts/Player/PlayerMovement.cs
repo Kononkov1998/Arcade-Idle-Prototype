@@ -10,13 +10,16 @@ namespace _Project.Scripts.Player
         [SerializeField] private NavMeshAgent _agent;
         private IInput _input;
 
-        public bool IsStopped => _input.Direction == Vector2.zero;
+        public bool HasInput => _input.Direction != Vector2.zero;
 
-        public void Init(IInput input) => 
+        private void Update()
+        {
+            if (HasInput)
+                Move();
+        }
+
+        public void Construct(IInput input) =>
             _input = input;
-
-        private void Update() => 
-            Move();
 
         private void Move()
         {

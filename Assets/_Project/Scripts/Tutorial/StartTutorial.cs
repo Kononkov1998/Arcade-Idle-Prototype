@@ -11,12 +11,28 @@ namespace _Project.Scripts.Tutorial
         [SerializeField] private Arrow _arrow;
         [SerializeField] private float _arrowHideSqrDistance = 11f;
         [SerializeField] private TutorialStep[] _steps;
-
-        private PlayerRoot _player;
         private int _currentStepIndex;
         private bool _enabled;
+        private PlayerRoot _player;
 
         private TutorialStep CurrentStep => _steps[_currentStepIndex];
+
+        private void Update()
+        {
+            if (!_enabled)
+                return;
+
+            HandleArrowVisibility();
+            RotateArrowToTarget();
+
+            if (CurrentStep.Completed)
+            {
+                if (HasNextStep())
+                    SelectNextStep();
+                else
+                    EndTutorial();
+            }
+        }
 
         public void Construct(PlayerRoot player)
         {
@@ -28,23 +44,6 @@ namespace _Project.Scripts.Tutorial
         {
             _arrow.AttachTo(_player.transform);
             _enabled = true;
-        }
-
-        private void Update()
-        {
-            if (!_enabled)
-                return;
-            
-            HandleArrowVisibility();
-            RotateArrowToTarget();
-
-            if (CurrentStep.Completed)
-            {
-                if (HasNextStep())
-                    SelectNextStep();
-                else
-                    EndTutorial();
-            }
         }
 
         private void HandleArrowVisibility()
@@ -79,7 +78,7 @@ namespace _Project.Scripts.Tutorial
         }
 
         [Button]
-        private void CollectStepsInChildren() => 
+        private void CollectStepsInChildren() =>
             _steps = GetComponentsInChildren<TutorialStep>();
     }
 }

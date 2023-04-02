@@ -8,18 +8,12 @@ namespace _Project.Scripts.Player
     {
         [SerializeField] private PlayerMovement _movement;
         [SerializeField] private PlayerCollision _collision;
-        private ReactiveProperty<float> _interactionProgress;
         private IActor _actor;
+        private ReactiveProperty<float> _interactionProgress;
 
         public float TimeToHit => ResourceSourceInRange.TimeToInteract;
         public IReadOnlyReactiveProperty<float> InteractionProgress => _interactionProgress;
         private IInteractive ResourceSourceInRange => _collision.ResourceSourceInRange;
-
-        public void Init(IActor actor)
-        {
-            _interactionProgress = new ReactiveProperty<float>();
-            _actor = actor;
-        }
 
         private void Update()
         {
@@ -35,6 +29,12 @@ namespace _Project.Scripts.Player
             }
         }
 
+        public void Construct(IActor actor)
+        {
+            _interactionProgress = new ReactiveProperty<float>();
+            _actor = actor;
+        }
+
         private bool CanInteract() =>
             _interactionProgress.Value > ResourceSourceInRange.TimeToInteract;
 
@@ -43,7 +43,7 @@ namespace _Project.Scripts.Player
 
         private void UpdateStayingTime()
         {
-            if (_movement.IsStopped)
+            if (!_movement.HasInput)
                 _interactionProgress.Value += Time.deltaTime;
             else if (_interactionProgress.Value > 0f)
                 _interactionProgress.Value = 0f;

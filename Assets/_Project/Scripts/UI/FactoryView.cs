@@ -17,9 +17,8 @@ namespace _Project.Scripts.UI
         [SerializeField] private float _distanceBetweenViews = .3f;
         [SerializeField] private Image _progressBackground;
         [SerializeField] private Image _progress;
-
-        private StaticData _staticData;
         private Dictionary<ResourceType, ResourceView> _resourceViews;
+        private StaticData _staticData;
 
         public void Construct(StaticData staticData)
         {

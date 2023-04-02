@@ -9,8 +9,8 @@ namespace _Project.Scripts.UI
     {
         [SerializeField] private TextMeshProUGUI _count;
         [SerializeField] private Image _icon;
-        
-        [Header("Animation Tweaks")]
+
+        [Header("Animation Tweaks")] 
         [SerializeField] private float _countChangeDuration = 0.5f;
         [SerializeField] private float _punchScale = 0.1f;
         [SerializeField] private float _punchDuration = 0.2f;

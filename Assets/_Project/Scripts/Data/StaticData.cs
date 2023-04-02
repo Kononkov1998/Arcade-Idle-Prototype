@@ -17,7 +17,7 @@ namespace _Project.Scripts.Data
         public ResourceConfig[] ResourcesConfigs;
         public string SaveFileName;
 
-        public Resource GetResourcePrefab(ResourceType resourceType, int amount) => 
+        public Resource GetResourcePrefab(ResourceType resourceType, int amount) =>
             ResourcesConfigs.First(x => x.Type == resourceType).GetResourcePrefab(amount);
 
         public ResourceConfig GetResourceConfig(ResourceType resourceType) =>

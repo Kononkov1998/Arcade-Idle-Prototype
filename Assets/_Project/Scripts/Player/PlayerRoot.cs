@@ -18,9 +18,9 @@ namespace _Project.Scripts.Player
 
         public void Construct(StaticData staticData, IInput input, Dictionary<ResourceType, int> resources)
         {
-            _movement.Init(input);
-            _interactor.Init(this);
-            _inventory.Init(_config, staticData, resources);
+            _movement.Construct(input);
+            _interactor.Construct(this);
+            _inventory.Construct(_config, staticData, resources);
             _pickUp.SetRadius(_config.PickUpRadius);
         }
     }

@@ -16,7 +16,7 @@ namespace _Project.Scripts.MinedResources.Visuals
 
         public bool Visible { get; private set; } = true;
 
-        private void Awake() => 
+        private void Awake() =>
             _startScale = transform.localScale;
 
         public void Show()

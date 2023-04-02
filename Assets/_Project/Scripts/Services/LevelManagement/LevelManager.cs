@@ -12,9 +12,9 @@ namespace _Project.Scripts.Services.LevelManagement
     {
         private GameFactory _gameFactory;
         private IPathProvider _pathProvider;
+        private PersistentData _persistentData;
         private ISaveLoadService _saveLoad;
         private StaticData _staticData;
-        private PersistentData _persistentData;
 
         public void Load(string name, Action onLoaded)
         {

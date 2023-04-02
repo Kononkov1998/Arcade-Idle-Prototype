@@ -12,7 +12,7 @@ namespace _Project.Scripts.MinedResources.Factory
         public StackedResources NeededResources;
     }
 
-    
+
     [Serializable]
     public class StackedResources : SerializableDictionaryBase<ResourceType, int>
     {

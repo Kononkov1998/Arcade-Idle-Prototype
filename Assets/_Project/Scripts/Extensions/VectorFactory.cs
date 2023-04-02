@@ -4,9 +4,9 @@ namespace _Project.Scripts.Extensions
 {
     public static class VectorFactory
     {
-        public static Vector3 Create(float value) => 
+        public static Vector3 Create(float value) =>
             new(value, value, value);
-        
+
         public static Vector3 CreateX(Vector3 origin, float x) =>
             new(x, origin.y, origin.z);
 

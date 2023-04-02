@@ -11,13 +11,14 @@ namespace _Project.Scripts.Player
     public class Storage
     {
         [SerializeReference] private readonly ReactiveDictionary<ResourceType, int> _resources;
-        public IReadOnlyReactiveDictionary<ResourceType, int> Resources => _resources;
 
         public Storage() =>
             _resources = new ReactiveDictionary<ResourceType, int>();
 
         public Storage(Dictionary<ResourceType, int> startResources) =>
             _resources = new ReactiveDictionary<ResourceType, int>(startResources);
+
+        public IReadOnlyReactiveDictionary<ResourceType, int> Resources => _resources;
 
         public void AddResource(ResourceType type, int amount)
         {

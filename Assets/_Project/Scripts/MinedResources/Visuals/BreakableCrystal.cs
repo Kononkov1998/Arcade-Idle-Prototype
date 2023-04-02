@@ -5,9 +5,9 @@ namespace _Project.Scripts.MinedResources.Visuals
 {
     public class BreakableCrystal : MonoBehaviour
     {
-        private float _timeToShow;
-        private float _timeToHide;
         private Vector3 _startScale;
+        private float _timeToHide;
+        private float _timeToShow;
 
         public float ThresholdForHide { get; private set; }
         public bool Visible { get; private set; } = true;

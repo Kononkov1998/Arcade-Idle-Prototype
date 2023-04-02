@@ -11,10 +11,10 @@ namespace _Project.Scripts.MinedResources.Source
         [SerializeField] private ResourceSourceConfig _config;
         [SerializeField] private ResourceSpawner _spawner;
         private ReactiveProperty<int> _durability;
-
-        public bool CanInteract(IActor _) => _durability.Value > 0;
+        
         public IReadOnlyReactiveProperty<int> Durability => _durability;
         public int MaxDurability => _config.Durability;
+        public bool CanInteract(IActor _) => _durability.Value > 0;
         public float TimeToInteract { get; private set; }
 
         private void Awake()

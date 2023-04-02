@@ -8,6 +8,7 @@ namespace _Project.Scripts.MinedResources.Visuals
         [Header("Punch")]
         [SerializeField] private float _punchScale = .2f;
         [SerializeField] private float _punchDuration = .2f;
+
         [Header("Show")]
         [SerializeField] private Vector3 _spawnPosition = new(0, 10f, 0);
         [SerializeField] private float _spawnResetScaleDuration = 0.25f;
@@ -15,6 +16,7 @@ namespace _Project.Scripts.MinedResources.Visuals
         [SerializeField] private float _landPunch = 0.005f;
         [SerializeField] private float _landPunchDuration = 0.25f;
         [SerializeField] private ParticleSystem _landEffect;
+
         [Header("Hide")]
         [SerializeField] private Vector3 _hidePosition = new(0, -1.85f, 0);
         [SerializeField] private float _hideDuration = 1f;

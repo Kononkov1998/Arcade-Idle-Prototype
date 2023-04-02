@@ -8,7 +8,7 @@ namespace _Project.Scripts.Services.SaveLoad
     public class PersistentData
     {
         private const string FirstLevelName = "Level 1";
-        
+
         public string CurrentLevelName;
         public Dictionary<ResourceType, int> PlayerResources;
 

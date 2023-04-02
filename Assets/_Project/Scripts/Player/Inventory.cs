@@ -18,7 +18,7 @@ namespace _Project.Scripts.Player
         public Transform PickUpPoint => _pickUpPoint;
         public Storage Storage { get; private set; }
 
-        public void Init(PlayerConfig config, StaticData staticData, Dictionary<ResourceType, int> resources)
+        public void Construct(PlayerConfig config, StaticData staticData, Dictionary<ResourceType, int> resources)
         {
             _config = config;
             _staticData = staticData;
@@ -31,7 +31,6 @@ namespace _Project.Scripts.Player
             Vector3 randomHoldPosition = _transferHoldPoint.position;
             randomHoldPosition.x += Random.Range(-_config.SpreadRadius, _config.SpreadRadius);
             randomHoldPosition.z += Random.Range(-_config.SpreadRadius, _config.SpreadRadius);
-
 
             DOTween.Sequence()
                 .Append(resource.DOJump(randomHoldPosition, 1f, 1, _config.TransferToHoldPointDuration))

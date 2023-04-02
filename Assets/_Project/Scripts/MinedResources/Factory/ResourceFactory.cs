@@ -16,14 +16,13 @@ namespace _Project.Scripts.MinedResources.Factory
         [SerializeField] private ResourceFactoryConfig _config;
         [SerializeField] private ResourceSpawner _spawner;
         [SerializeField] private Transform _resourceInputPoint;
-
-        private Storage _resourcesInTransfer;
         private IReactiveProperty<float> _creationProgress;
+        private Storage _resourcesInTransfer;
 
         public Storage NeededResources { get; private set; }
-        public float TimeToInteract { get; private set; }
         public IReadOnlyReactiveProperty<float> CreationProgress => _creationProgress;
         public IDictionary<ResourceType, int> StartNeededResources => _config.NeededResources;
+        public float TimeToInteract { get; private set; }
 
         public void Construct()
         {
@@ -31,6 +30,27 @@ namespace _Project.Scripts.MinedResources.Factory
             _resourcesInTransfer = new Storage();
             NeededResources = new Storage(new Dictionary<ResourceType, int>(_config.NeededResources));
             TimeToInteract = 1f / _config.TransfersPerSecond;
+        }
+
+        public bool CanInteract(IActor actor)
+        {
+            foreach ((ResourceType resourceType, int neededAmount) in NeededResources.Resources)
+                if (CanBeTransferredAmount(actor.Inventory.Storage, resourceType, neededAmount) > 0)
+                    return true;
+
+            return false;
+        }
+
+        public void Interact(IActor actor)
+        {
+            ResourceType type = GetNeededResourceData(actor.Inventory.Storage);
+            Inventory inventory = actor.Inventory;
+
+            inventory.Storage.RemoveResource(type, ResourceAmountInOneObject);
+            _resourcesInTransfer.AddResource(type, ResourceAmountInOneObject);
+
+            inventory.TransferResource(type, _resourceInputPoint.position,
+                () => ResourceTransferEnded(type, ResourceAmountInOneObject));
         }
 
         private void FillNeededResources()
@@ -41,15 +61,6 @@ namespace _Project.Scripts.MinedResources.Factory
 
         private void SpawnResources() =>
             _spawner.Spawn();
-
-        public bool CanInteract(IActor actor)
-        {
-            foreach ((ResourceType resourceType, int neededAmount) in NeededResources.Resources)
-                if (CanBeTransferredAmount(actor.Inventory.Storage, resourceType, neededAmount) > 0)
-                    return true;
-
-            return false;
-        }
 
         private int CanBeTransferredAmount(Storage storage, ResourceType resourceType, int neededAmount)
         {
@@ -70,18 +81,6 @@ namespace _Project.Scripts.MinedResources.Factory
             }
 
             throw new InvalidOperationException("No needed resource found");
-        }
-
-        public void Interact(IActor actor)
-        {
-            ResourceType type = GetNeededResourceData(actor.Inventory.Storage);
-            Inventory inventory = actor.Inventory;
-
-            inventory.Storage.RemoveResource(type, ResourceAmountInOneObject);
-            _resourcesInTransfer.AddResource(type, ResourceAmountInOneObject);
-
-            inventory.TransferResource(type, _resourceInputPoint.position,
-                () => ResourceTransferEnded(type, ResourceAmountInOneObject));
         }
 
         private void ResourceTransferEnded(ResourceType type, int amount)

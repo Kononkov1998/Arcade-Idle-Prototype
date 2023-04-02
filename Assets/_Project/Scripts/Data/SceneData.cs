@@ -1,6 +1,4 @@
-using System.Collections.Generic;
 using _Project.Scripts.Camera;
-using _Project.Scripts.MinedResources;
 using _Project.Scripts.MinedResources.Factory;
 using _Project.Scripts.MinedResources.Spawner;
 using _Project.Scripts.Services.SaveLoad;

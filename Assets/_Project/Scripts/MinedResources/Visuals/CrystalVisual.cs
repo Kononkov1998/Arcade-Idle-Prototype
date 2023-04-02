@@ -11,7 +11,8 @@ namespace _Project.Scripts.MinedResources.Visuals
         [SerializeField] private ParticleSystem _hitEffect;
         [SerializeField] private Transform _model;
         [SerializeField] private BreakableCrystal[] _breakableCrystals;
-        [Header("Animation Tweaks")]
+
+        [Header("Animation Tweaks")] 
         [SerializeField] private float _punchScale = .2f;
         [SerializeField] private float _punchDuration = .2f;
         [SerializeField] private float _timeToShowBreakableCrystal = 0.25f;

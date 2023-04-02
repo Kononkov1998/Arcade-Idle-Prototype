@@ -16,13 +16,13 @@ namespace _Project.Scripts
         [SerializeField] private SceneData _sceneData;
 
         private GameFactory _gameFactory;
-        private IPathProvider _pathProvider;
-        private ISaveLoadService _saveLoad;
-        private StaticData _staticData;
-        private PersistentData _persistentData;
 
         private IInput _input;
+        private IPathProvider _pathProvider;
+        private PersistentData _persistentData;
         private PlayerRoot _player;
+        private ISaveLoadService _saveLoad;
+        private StaticData _staticData;
 
         public void Construct(GameFactory gameFactory, IPathProvider pathProvider,
             ISaveLoadService saveLoad, StaticData staticData, PersistentData persistentData)
@@ -62,7 +62,7 @@ namespace _Project.Scripts
                 view.Construct(_staticData);
                 view.Init();
             }
-            
+
             if (_sceneData.Tutorial != null)
             {
                 _sceneData.Tutorial.Construct(_player);
