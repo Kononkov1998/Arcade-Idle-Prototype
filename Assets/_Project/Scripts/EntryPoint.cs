@@ -28,6 +28,7 @@ namespace _Project.Scripts
 
         private void Execute()
         {
+            Application.targetFrameRate = 60;
             CreateServices();
             LoadData();
             LoadLevel();
@@ -38,7 +39,7 @@ namespace _Project.Scripts
 #if UNITY_EDITOR
             _pathProvider = new PathProvider(_staticData);
 #elif PLATFORM_ANDROID
-            _pathProvider = new PersistentPathProvider();
+            _pathProvider = new PersistentPathProvider(_staticData);
 #endif
             _saveLoad = new JsonSaveLoadService();
             _gameFactory = new GameFactory(_staticData);
