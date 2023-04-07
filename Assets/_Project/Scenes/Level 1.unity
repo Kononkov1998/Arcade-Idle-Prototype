@@ -962,7 +962,7 @@ GameObject:
   - component: {fileID: 1394393694}
   - component: {fileID: 1394393695}
   m_Layer: 0
-  m_Name: Boot
+  m_Name: LevelEntryPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e69299c25a6418da1eb6ae56db38b0d, type: 3}
   m_Name: WoodSpawner
   m_EditorClassIdentifier: 
-  ResourcesCount: 1
+  ResourcesCount: 100
   AmountInResourceObject: 1
   MinResourceForce: 300
   MaxResourceForce: 500

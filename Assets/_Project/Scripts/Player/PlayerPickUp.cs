@@ -45,7 +45,11 @@ namespace _Project.Scripts.Player
             DOTween.Sequence(resourceTransform)
                 .Join(resourceTransform.DOLocalJump(Vector3.zero, 1f, 1, _pickUpDuration))
                 .Join(resourceTransform.DOScale(Vector3.zero, _pickUpDuration).SetEase(Ease.InQuad))
-                .OnComplete(() => _inventory.Storage.AddResource(resource.Type, resource.Amount));
+                .OnComplete(() =>
+                {
+                    _inventory.Storage.AddResource(resource.Type, resource.Amount);
+                    Destroy(resourceTransform.gameObject);
+                });
         }
     }
 }
